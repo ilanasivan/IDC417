@@ -13,32 +13,33 @@ public class Buses {
  * The method returns the total amount of busses and shuttles necessary to transport a given number of tourists and the total cost.
  **/
 	public static void main(String[] args) {
-		//establish variables
+		
+		// Establish variables
 		int busCost = 500;
 		int shuttleCost = 300;
 		int maxBusPassengers= 50;
 		int maxShuttlePassengers = 12;
-		int numberOfShuttles=0;
+		int numberOfShuttles = 0;
 		int passengers = Integer.parseInt(args[0]);
 		int numberOfBuses = passengers/maxBusPassengers;
 		int passengersLeftOut = passengers%maxBusPassengers;
 
-		//validate
+		// Validate
 		if (passengersLeftOut<0){
 			System.out.println("We can't send transportation for non-existant travelers");
 			return;
 		} else if (passengersLeftOut>12) {
 			numberOfBuses++;
-		} else if (passengersLeftOut<=12 && passengersLeftOut!=0){
+		} else if (passengersLeftOut <= 12 && passengersLeftOut != 0){
 			numberOfShuttles++;
 		}
 
-		//establish price
+		// Establish price
 		int totalBusCost = numberOfBuses*busCost;
 		int totalShuttleCost = numberOfShuttles*shuttleCost;
 		int totalCost = totalBusCost+totalShuttleCost;
 
-		//generate output
+		// Generate output
 		System.out.println("Use " + numberOfBuses + " buses and " + numberOfShuttles + " shuttles at a cost of " + totalCost + " ILS");
     }
 }
