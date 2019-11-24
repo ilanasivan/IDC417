@@ -1,11 +1,3 @@
-/*
-Assignment number : 1.2
-File Name : Buses.java
-Name (First Last) : Ilana Sivan
-Student ID : 205634272
-Email : ilana.sivan@post.idc.ac.il
- */
-
 public class Buses {
 /**The method checks what is the most cost-efficient way to transport tourists, with busses and/or shuttles, and provides a cost.
  * The cost of a single bus is 500 ILS and the cost of a single shuttle is 300 ILS.
