@@ -1,10 +1,4 @@
-/*
-Assignment number : 1.3
-File Name : Quadratic.java
-Name (First Last) : Ilana Sivan
-Student ID : 205634272
-Email : ilana.sivan@post.idc.ac.il
- */
+
 import java.lang.Math;
 
 public class Quadratic {
@@ -15,20 +9,22 @@ public class Quadratic {
  **/
 
     public static void main(String[] args) {
-        //store args
+       
+        // Store args
         double a = Double.parseDouble(args[0]);
         double b = Double.parseDouble(args[1]);
         double c = Double.parseDouble(args[2]);
 
-        //create a determinant for future use
+        // Create a determinant for future use
         double determinant = Math.pow(b, 2) - (4 * a * c);
 
-        //condition for a determinant greater than 0
+        // Condition for a determinant greater than 0
         if (determinant > 0){
             //quadratic equation
             double root1 = (-b + Math.sqrt(determinant))/(2*a);
             double root2 = (-b - Math.sqrt(determinant))/(2*a);
-                //generate output with smaller x first
+                
+            // Generate output with smaller x first
                 if (root1<root2) {
                     System.out.println(a + "x^2 + " + b + "x + " + c + " ->");
                     System.out.println("x= " + root1 + ", " + root2);
@@ -36,14 +32,18 @@ public class Quadratic {
                     System.out.println(a + "x^2 + " + b + "x + " + c + " ->");
                     System.out.println("x= " + root2 + ", " + root1);
                 }
-        //condition for a determinant equal to 0
+        
+            //Condition for a determinant equal to 0
         } else if (determinant==0) {
-            //quadratic equation
+            
+            // Quadratic equation
             double root1 = -b / (2 * a);
-            //generate output
+            
+            //Generate output
             System.out.println(a + "x^2 + " + b + "x + " + c + " ->");
             System.out.println("x= " + root1);
-        //condition for a determinant that is less than 0
+            
+        // Condition for a determinant that is less than 0
         } else if (determinant<0){
             System.out.println ("Hey, we were told to assume all solutions are real!");
 
