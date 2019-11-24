@@ -14,27 +14,28 @@ public class FVCalc {
  * The final result is a rounded integer.
  **/
 
-	//initializing variables
+    // Initializing variables
     int currentValue;
     double lossRate;
     int yearsCarWasOwned;
 
 	public static void main(String[] args){
-		//store args
+	
+	    // Store args
 	    int currentValue = Integer.parseInt(args[0]);
 	    double lossRate = Double.parseDouble(args[1]);
 	    int yearsCarWasOwned = Integer.parseInt(args[2]);
 
-	    // convert lossRate value into percentage
-        double percentage = lossRate/100;
+	    // Convert lossRate value into percentage
+            double percentage = lossRate/100;
 
-        //formula for value loss
-		double calculatedValue =  Math.round(currentValue * Math.pow(1-percentage, yearsCarWasOwned));
+            // Formula for value loss
+	    double calculatedValue =  Math.round(currentValue * Math.pow(1-percentage, yearsCarWasOwned));
 
-		//cast double to int
+	    // Cast double to int
 	    int futureValue = (int) calculatedValue;
 
-	    //generate output
+	// Generate output
         System.out.println("After " + yearsCarWasOwned + " years, a $" + currentValue + " car that loses " + lossRate + "% annually is worth $" + futureValue);
 	}
 }
