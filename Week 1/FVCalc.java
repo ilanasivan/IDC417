@@ -1,10 +1,4 @@
-/*
-Assignment number : 1.1
-File Name : FVCalc.java
-Name (First Last) : Ilana Sivan
-Student ID : 205634272
-Email : ilana.sivan@post.idc.ac.il
- */
+
 import java.lang.Math;
 
 public class FVCalc {
