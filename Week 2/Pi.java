@@ -1,49 +1,37 @@
 import java.lang.Math;
 
-public class Dice {
-    /**	This program calculates the expected value (average) of N sums of m throws of n-sided dice and prints it.
-     * The private dice method simulates throwing a single n-sided dice.
-     * The dice_sum method returns pseudo-randomly the sum of the integers resulting from m dice throws of an n-sided dice.
-     * The main method calculates the expected value and uses dice_sum.
+public class Pi {
+    /**	This program calculates the value of Pi given the equation for the infinite series of Pi.
+     * The program receives two command-line integers, N1 and N2 and approximates Pi by calculating the equation using n+1 terms.
+     * The main method assumes N1 is less than or equal to n, and n is less than or equal to N2 (n is the range).
      **/
 
-    // Simulate dice throw
-    private static int dice(int n){
-        int min = 1;
-        int range = n;
-        int randomizedValue = (int) (Math.random() * range) + min;
-        return randomizedValue;
+    // Create part of the pi equation for calculating the infinite series of pi for future use
+    public static double sumFunction(int k){
+        double sumFunction = (Math.pow(-3,-k))/((2*k)+1);
+        return sumFunction;
     }
 
-    // Return sum of integers resulting from m throws of n-sides dice
-    private static int dice_sum(int m, int n){
-        int sum = 0;
-        for (int i = 0; i < m; i++) {
-            sum += dice(n);
-        }
-        return sum;
-    }
-
-    // Calculate average
     public static void main(String[] args){
 
-        // Store console inputs for n (sides), m (throws), N (sums)
-        int n = Integer.parseInt(args[0]);
-        int m = Integer.parseInt(args[1]);
-        int N = Integer.parseInt(args[2]);
+        // Initialize our console integers and store args
+        int N1 = Integer.parseInt(args[0]);
+        int N2 = Integer.parseInt(args[1]);
 
-        // Initialize diceSum variable
-        int diceSum = 0;
+        // Calculating the value of pi
+        for (int n = N1; n <= N2; n++){
+            double sum = 0;
+            for (int k = 0; k <= n; k++){
 
-        // Store sum of integers
-        for (int i = 0; i < N; i++){
-            diceSum += dice_sum(m,n);
+                // Call stored sumFunction of int k and add the sum to k
+                sum += sumFunction(k);
+            }
+
+            // Multiply the sum by the square root of 12, from the equation for the infinite series of pi
+            sum *= Math.sqrt(12);
+
+            // Generate output
+            System.out.println("n = " + n + " : pi = " + sum);
         }
-
-        // Calculate the average and store it
-        double average = (double) diceSum / N;
-
-        // Generate output
-        System.out.println(average);
     }
 }
