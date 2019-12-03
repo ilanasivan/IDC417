@@ -1,0 +1,43 @@
+import java.lang.Math;
+
+public class MaxIntPalindrome {
+    /** This program finds the largest integer palindrome made from a product of two 3-digit numbers.
+     * A palindromic integer reads the same if you scan the digits from left to right or from right to left.
+     * The boolean isPalindrome checks if a number is a palindrome and is called in our main method as the program scans values.
+     * isPalindrome returns true if n is a palindromic integer or false otherwise
+     * Our main method prints the largest palindrome made from the product of two 3-digits numbers.
+     **/
+
+    // Identify palindromic integers by casting values to strings
+    public static boolean isPalindrome(int n) {
+        String s = Integer.toString(n);
+        int left = 0;
+        int right = s.length() - 1;
+        while (s.charAt(left) == s.charAt(right) && (left < right)) {
+            left++;
+            right--;
+        }
+
+        return left >= right;
+    }
+
+    public static void main(String[] args) {
+
+        // Set a value for storage int largestPalindrome
+        int largestPalindrome = 0;
+
+        // Multiply across all three digit numbers
+        for (int i = 100; i <= 999; i++) {
+            for (int j = 100; j <= 999; j++) {
+                int n = i*j;
+
+                // Call isPalindrome and store palindromic n values as largestPalindrome until a max is found
+                if (isPalindrome(n) && n > largestPalindrome) {
+                    largestPalindrome = n;
+                }
+            }
+        }
+
+        // Generate output
+        System.out.println(largestPalindrome);
+    }
